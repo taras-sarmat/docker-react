@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t tarassarmat/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run tarassarmat/docker-react npm run test -- --coverage
